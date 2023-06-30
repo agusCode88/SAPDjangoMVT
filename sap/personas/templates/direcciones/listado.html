@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Direcciones</title>
+</head>
+<body>
+<h1>Listado de Direcciones </h1>
+
+<div>
+    Número de direcciones: {{no_direcciones}}
+</div>
+
+<div>
+    <a href="nueva_direccion">Agregar Dirección</a>
+</div>
+
+
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Calle</th>
+            <th>Número de Calle</th>
+            <th>País</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for direccion in direcciones %}
+        <tr>
+            <td>{{direccion.id}}</td>
+            <td>{{direccion.calle}}</td>
+            <td>{{direccion.no_calle}}</td>
+            <td>{{direccion.pais}}</td>
+<!--            <td><a href="detalle_persona/{{persona.id}}">Ver</a></td>
+            <td><a href="editar_persona/{{persona.id}}">Editar</a></td>
+            <td><a href="eliminar_persona/{{persona.id}}">Eliminar</a></td>-->
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<!--    <a href="nueva_direccion">Agregar Direccion</a>-->
+</div>
+
+</body>
+</html>
