@@ -68,3 +68,22 @@ def agregarDireccion(request):
         formDireccion = DomicilioForm()
 
     return render(request, 'direcciones/nuevo.html', {'formDireccion': formDireccion})
+
+
+def editarDireccion(request, id):
+    direccion = get_object_or_404(Domicilio, pk=id)
+    if request.method == 'POST':
+        formDireccion = DomicilioForm(request.POST, instance=direccion)
+        if formDireccion.is_valid():
+            formDireccion.save()
+            return redirect('index')
+
+    else:
+        formDireccion = DomicilioForm(instance=direccion)
+
+    return render(request, 'direcciones/editar.html', {'formDireccion': formDireccion})
+
+
+def detalleDireccion(request, id):
+    direccion = get_object_or_404(Domicilio, pk=id)
+    return render(request, 'direcciones/detalle.html', {'domicilio': direccion})

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from personas.views import detallePersona, agregarPersona, editarPersona, eliminarPersona, listadoDirecciones, \
-    agregarDireccion
+    agregarDireccion, detalleDireccion, editarDireccion
 from webapp.views import bienvenido
 
 urlpatterns = [
@@ -30,6 +30,8 @@ urlpatterns = [
     path('editar_persona/<int:id>', editarPersona),
     path('eliminar_persona/<int:id>', eliminarPersona),
     path('direcciones', listadoDirecciones),
-    path('nueva_direccion/', agregarDireccion)
+    path('nueva_direccion/', agregarDireccion),
+    path('detalle_direccion/<int:id>', detalleDireccion),
+    path('editar_direccion/<int:id>', editarDireccion)
 
 ]
